@@ -5,241 +5,272 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anup Yadav | Full Stack Developer</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <script src="https://kit.fontawesome.com/a2e3e6a4e6.js" crossorigin="anonymous"></script>
-  <script src="script.js" defer></script>
-  <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-/>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <!-- Background Particles -->
-  <div id="particles-js"></div>
 
-  <!-- Header -->
-  <header>
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+
+  <div class="bg-grid"></div>
+  <div class="bg-glow glow-1"></div>
+  <div class="bg-glow glow-2"></div>
+  <div class="bg-glow glow-3"></div>
+
+  <header id="header">
     <nav class="navbar">
-      <div class="logo"><span>Developer</span></div>
+      <div class="logo"><span class="logo-bracket">&lt;</span>Anup<span class="logo-accent">/</span><span class="logo-bracket">&gt;</span></div>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#home" class="nav-item">Home</a></li>
+        <li><a href="#about" class="nav-item">About</a></li>
+        <li><a href="#skills" class="nav-item">Skills</a></li>
+        <li><a href="#projects" class="nav-item">Projects</a></li>
+        <li><a href="#contact" class="nav-item">Contact</a></li>
       </ul>
-      <div class="menu-toggle" id="menuToggle">&#9776;</div>
+      <a href="#contact" class="btn-hire">Hire Me</a>
+      <div class="menu-toggle" id="menuToggle"><span></span><span></span><span></span></div>
     </nav>
   </header>
 
-  <!-- Home Section -->
   <section id="home" class="home">
     <div class="home-content">
-      <h1>Hello, I'm <span>Anup Yadav</span></h1>
-      <h2><span class="typing"></span></h2>
-      <p>Crafting powerful, scalable, and beautiful web experiences using the MERN stack.</p>
-      <a href="#projects" class="btn">Explore My Work</a>
+      <div class="badge">👋 Available for Work</div>
+      <h1>Hello, I'm<br/><span class="name-gradient">Anup Yadav</span></h1>
+      <h2 class="typing-wrapper">I'm a <span class="typing"></span><span class="cursor-blink">|</span></h2>
+      <p>Crafting powerful, scalable, and beautiful web experiences using the MERN stack — where hardware meets software.</p>
+      <div class="cta-group">
+        <a href="#projects" class="btn btn-primary">View My Work <i class="fas fa-arrow-right"></i></a>
+        <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+      </div>
+      <div class="home-stats">
+        <div class="stat"><span class="stat-num">7+</span><span class="stat-label">Projects</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">2+</span><span class="stat-label">Years Coding</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">MERN</span><span class="stat-label">Stack</span></div>
+      </div>
+    </div>
+    <div class="home-visual">
+      <div class="code-window">
+        <div class="window-bar">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="window-title">anup.js</span>
+        </div>
+        <pre class="code-body"><span class="c-keyword">const</span> <span class="c-var">developer</span> = {
+  <span class="c-key">name</span>: <span class="c-str">"Anup Yadav"</span>,
+  <span class="c-key">role</span>: <span class="c-str">"Full Stack Dev"</span>,
+  <span class="c-key">stack</span>: [<span class="c-str">"React"</span>, <span class="c-str">"Node"</span>,
+           <span class="c-str">"MongoDB"</span>, <span class="c-str">"Express"</span>],
+  <span class="c-key">passion</span>: <span class="c-str">"Building cool stuff"</span>,
+  <span class="c-key">available</span>: <span class="c-bool">true</span>
+};</pre>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
+      <span>Scroll</span>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="about">
-    <h2 class="section-title">About Me</h2>
+  <section id="about" class="about reveal">
+    <div class="section-label">01 — About</div>
+    <h2 class="section-title">About <span>Me</span></h2>
     <div class="about-content">
-      <img src="your-photo.jpg" alt="Anup Yadav" class="profile-pic" />
+      <div class="about-image-wrap">
+        <div class="image-frame">
+          <img src="your-photo.jpg" alt="Anup Yadav" class="profile-pic" />
+          <div class="image-border"></div>
+        </div>
+        <div class="about-tags">
+          <span class="tag">ECE Graduate</span>
+          <span class="tag">Full Stack</span>
+          <span class="tag">Open Source</span>
+        </div>
+      </div>
       <div class="about-text glass">
-        <p>
-          I’m a Full Stack Web Developer skilled in the MERN stack, with a background in Electronics and Communication Engineering.
-My journey began with hardware and embedded systems, which taught me how things work at the core — and now I love combining that foundation with software development to build efficient and user-centric web applications.
-I enjoy learning new technologies, solving real-world problems, and transforming ideas into functional digital experiences.
-        </p>
-        <!-- <p>
-          Beyond coding, I enjoy exploring new technologies, contributing to open-source, and mentoring others.
-        </p> -->
+        <p>I'm a <strong>Full Stack Web Developer</strong> skilled in the MERN stack, with a background in <strong>Electronics and Communication Engineering</strong>.</p>
+        <p>My journey began with hardware and embedded systems, which taught me how things work at the core — and now I love combining that foundation with software development to build efficient, user-centric web applications.</p>
+        <p>I enjoy solving real-world problems and transforming ideas into functional digital experiences.</p>
+        <div class="about-actions">
+          <a href="#contact" class="btn btn-primary">Let's Talk</a>
+          <a href="https://resume-seven-ashy.vercel.app" class="btn btn-ghost"><i class="fas fa-download"></i> Resume</a>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="skills">
-    <h2 class="section-title">Technical Skills</h2>
-    <div class="skills-container">
-      <div class="skill-card">
-        <i class="fab fa-html"></i>
-        <p>HTML</p>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-css-alt"></i>
-        <p>CSS</p>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-js"></i>
-        <p>JavaScript</p>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-react.js"></i>
-        <p>React.js</p>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-node-js"></i>
-        <p>Node.js</p>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-server"></i>
-        <p>Express.js</p>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-Python"></i>
-        <p>Python</p>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-Rest API"></i>
-        <p>Rest API</p>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-Bootstrap"></i>
-        <p>Bootstrap</p>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-TailwindCSS"></i>
-        <p>TailwindCSS</p>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-database"></i>
-        <p>MongoDB</p>
-      </div>
-      <div class="skill-card">
-        <i class="fas fa-database"></i>
-        <p>MySQL</p>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-Embedded System"></i>
-        <p>Embedded System</p>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-Arduino"></i>
-        <p>Arduino</p>
-      </div>
-       <div class="skill-card">
-        <i class="fab fa-MATLAB"></i>
-        <p>MATLAB</p>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-git-alt"></i>
-        <p>Git & GitHub</p>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-VScode"></i>
-        <p>VScode</p>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-Hoppscotch"></i>
-        <p>Hoppscotch</p>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-Vercel"></i>
-        <p>vercel</p>
-      </div>
-      <div class="skill-card">
-        <i class="fab fa-Render"></i>
-        <p>Render</p>
-      </div>
+  <section id="skills" class="skills reveal">
+    <div class="section-label">02 — Skills</div>
+    <h2 class="section-title">Technical <span>Skills</span></h2>
+    <div class="skills-tabs">
+      <button class="tab-btn active" data-tab="frontend">Frontend</button>
+      <button class="tab-btn" data-tab="backend">Backend</button>
+      <button class="tab-btn" data-tab="hardware">Hardware</button>
+      <button class="tab-btn" data-tab="tools">Tools</button>
+    </div>
+    <div class="skills-container" id="skillsContainer">
+      <div class="skill-card" data-tab="frontend"><i class="fab fa-html5"></i><p>HTML5</p></div>
+      <div class="skill-card" data-tab="frontend"><i class="fab fa-css3-alt"></i><p>CSS3</p></div>
+      <div class="skill-card" data-tab="frontend"><i class="fab fa-js"></i><p>JavaScript</p></div>
+      <div class="skill-card" data-tab="frontend"><i class="fab fa-react"></i><p>React.js</p></div>
+      <div class="skill-card" data-tab="frontend"><i class="fas fa-wind"></i><p>Tailwind CSS</p></div>
+      <div class="skill-card" data-tab="frontend"><i class="fab fa-bootstrap"></i><p>Bootstrap</p></div>
+      <div class="skill-card hidden" data-tab="backend"><i class="fab fa-node-js"></i><p>Node.js</p></div>
+      <div class="skill-card hidden" data-tab="backend"><i class="fas fa-server"></i><p>Express.js</p></div>
+      <div class="skill-card hidden" data-tab="backend"><i class="fas fa-database"></i><p>MongoDB</p></div>
+      <div class="skill-card hidden" data-tab="backend"><i class="fas fa-database"></i><p>MySQL</p></div>
+      <div class="skill-card hidden" data-tab="backend"><i class="fab fa-python"></i><p>Python</p></div>
+      <div class="skill-card hidden" data-tab="backend"><i class="fas fa-code"></i><p>REST API</p></div>
+      <div class="skill-card hidden" data-tab="hardware"><i class="fas fa-microchip"></i><p>Embedded Systems</p></div>
+      <div class="skill-card hidden" data-tab="hardware"><i class="fas fa-bolt"></i><p>Arduino</p></div>
+      <div class="skill-card hidden" data-tab="hardware"><i class="fas fa-chart-line"></i><p>MATLAB</p></div>
+      <div class="skill-card hidden" data-tab="tools"><i class="fab fa-git-alt"></i><p>Git & GitHub</p></div>
+      <div class="skill-card hidden" data-tab="tools"><i class="fas fa-cloud-upload-alt"></i><p>Vercel</p></div>
+      <div class="skill-card hidden" data-tab="tools"><i class="fas fa-globe"></i><p>Render</p></div>
+      <div class="skill-card hidden" data-tab="tools"><i class="fas fa-terminal"></i><p>VS Code</p></div>
+      <div class="skill-card hidden" data-tab="tools"><i class="fas fa-vial"></i><p>Hoppscotch</p></div>
     </div>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects">
-    <h2 class="section-title">Projects</h2>
+  <section id="projects" class="projects reveal">
+    <div class="section-label">03 — Projects</div>
+    <h2 class="section-title">My <span>Projects</span></h2>
     <div class="projects-container">
-
-      <div class="project-card">
+      <div class="project-card featured">
+        <div class="project-number">01</div>
+        <div class="project-tag">Security · ML</div>
         <h3>CANBUS Security Analyzer</h3>
-        <p>CAN Bus Security Analyzer is a real-time intrusion detection web application that identifies DoS, injection, replay, spoofing, and anomaly attacks on automotive CAN bus networks with high accuracy. 
-          It allows users to upload CAN traffic and view detailed analytics of potential threats, helping enhance vehicle communication security.</p>
-        <br>
-        <a href="https://canbus.onrender.com" class="btn small">GitHub</a>
-        <br>
-        <br>
+        <p>Real-time intrusion detection web app identifying DoS, injection, replay, spoofing, and anomaly attacks on automotive CAN bus networks with high accuracy.</p>
+        <div class="project-tech"><span>Python</span><span>Flask</span><span>ML</span></div>
+        <div class="project-links">
+          <a href="https://canbus.onrender.com" target="_blank" class="project-btn"><i class="fas fa-external-link-alt"></i> Live</a>
+          <a href="https://github.com/anupyadav-213" target="_blank" class="project-btn ghost"><i class="fab fa-github"></i> Code</a>
+        </div>
       </div>
-
       <div class="project-card">
+        <div class="project-number">02</div>
+        <div class="project-tag">ML · Healthcare</div>
         <h3>Diabetes Prediction</h3>
-        <p>Developed a Trained model to predict diabetes in patients using features like BMI, age, and glucose levels. The model achieved 85% accuracy and was deployed as a web application using Flask.</p>
-        <br>
-        <a href="https://diabetes-prediction-1-tvlq.onrender.com" class="btn small">GitHub</a>
-        <br>
-        <br>
+        <p>Trained ML model predicting diabetes using BMI, age, and glucose levels with 85% accuracy. Deployed as a Flask web application.</p>
+        <div class="project-tech"><span>Python</span><span>Flask</span><span>Scikit-learn</span></div>
+        <div class="project-links">
+          <a href="https://diabetes-prediction-1-tvlq.onrender.com" target="_blank" class="project-btn"><i class="fas fa-external-link-alt"></i> Live</a>
+        </div>
       </div>
-
       <div class="project-card">
+        <div class="project-number">03</div>
+        <div class="project-tag">E-Commerce · React</div>
         <h3>Solara</h3>
-        <p>Developed a responsive e-commerce web application using React.js and Next.js with product listings, cart,
- and authentication, optimized with SEO-friendly SSR/SSG architecture and deployed on Vercel with a
- modern, user-friendly UI.</p>
-        <br>
-        <a href="https://solara-murex.vercel.app/" class="btn small">GitHub</a>
-        <br>
-        <br>
+        <p>Responsive e-commerce app using React.js and Next.js with product listings, cart, and authentication — SEO-optimized with SSR/SSG on Vercel.</p>
+        <div class="project-tech"><span>React</span><span>Next.js</span><span>Vercel</span></div>
+        <div class="project-links">
+          <a href="https://solara-murex.vercel.app/" target="_blank" class="project-btn"><i class="fas fa-external-link-alt"></i> Live</a>
+        </div>
       </div>
       <div class="project-card">
+        <div class="project-number">04</div>
+        <div class="project-tag">Web · Portfolio</div>
         <h3>Portfolio Website</h3>
-        <p>Modern responsive portfolio website built using HTML, CSS, and JavaScript.</p>
-        <br>
-        <a href="https://portfolio-website-sooty-six-69.vercel.app/" class="btn small">Live Demo</a>
-        <br>
-        <br>
+        <p>Modern responsive portfolio website built using HTML, CSS, and JavaScript with smooth animations and interactive elements.</p>
+        <div class="project-tech"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+        <div class="project-links">
+          <a href="https://portfolio-website-sooty-six-69.vercel.app/" target="_blank" class="project-btn"><i class="fas fa-external-link-alt"></i> Live</a>
+        </div>
       </div>
       <div class="project-card">
+        <div class="project-number">05</div>
+        <div class="project-tag">Hardware · IoT</div>
         <h3>EVM Prototype</h3>
-        <p>Built an Arduino-based electronic voting machine prototype with real-time vote display using buttons,
-           fingerprint sensor and LEDs.</p>
-        <br>
-        <a href="https://www.tinkercad.com/things/8MI07cWI4pj-evm" class="btn small">Autodesk</a>
+        <p>Arduino-based electronic voting machine prototype with real-time vote display using buttons, fingerprint sensor, and LEDs.</p>
+        <div class="project-tech"><span>Arduino</span><span>C++</span><span>Hardware</span></div>
+        <div class="project-links">
+          <a href="https://www.tinkercad.com/things/8MI07cWI4pj-evm" target="_blank" class="project-btn"><i class="fas fa-external-link-alt"></i> Demo</a>
+        </div>
       </div>
       <div class="project-card">
-        <h3>Arduino-Based LCD Game</h3>
-        <p> Created a game displayed on an LCD with control via a potentiometer and buttons for interactive gameplay.</p>
-        <br>
-        <a href="https://www.tinkercad.com/things/gZfCENNUmXC-lcd-game" class="btn small">Autodesk</a>
+        <div class="project-number">06</div>
+        <div class="project-tag">Hardware · Game</div>
+        <h3>Arduino LCD Game</h3>
+        <p>Interactive game displayed on an LCD controlled via a potentiometer and buttons for immersive embedded gameplay.</p>
+        <div class="project-tech"><span>Arduino</span><span>LCD</span><span>C++</span></div>
+        <div class="project-links">
+          <a href="https://www.tinkercad.com/things/gZfCENNUmXC-lcd-game" target="_blank" class="project-btn"><i class="fas fa-external-link-alt"></i> Demo</a>
+        </div>
       </div>
       <div class="project-card">
-        <h3>Four-leg Spider Robot</h3>
-        <p> Designed a solar-powered spider robot for automated crop cutting and spraying, controlled via bluetooth.</p>
-        <br>
-        <!-- <a href="#" class="btn small">GitHub</a> -->
+        <div class="project-number">07</div>
+        <div class="project-tag">Robotics · Solar</div>
+        <h3>Four-Leg Spider Robot</h3>
+        <p>Solar-powered spider robot designed for automated crop cutting and spraying, with Bluetooth remote control capability.</p>
+        <div class="project-tech"><span>Arduino</span><span>Bluetooth</span><span>Solar</span></div>
       </div>
     </div>
   </section>
 
-   <!-- Contact Section -->
-<section id="contact" class="contact">
-  <h2 class="section-title">Contact Me</h2>
+  <section id="contact" class="contact reveal">
+    <div class="section-label">04 — Contact</div>
+    <h2 class="section-title">Let's <span>Connect</span></h2>
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <h3>Got a project in mind?</h3>
+        <p>I'm always open to discussing new projects, creative ideas or opportunities to be part of something great.</p>
+        <div class="contact-details">
+          <div class="contact-item">
+            <i class="fas fa-envelope"></i>
+            <span>anupyadav1302@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>India</span>
+          </div>
+        </div>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/anup-yadav-s13072002" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+          </a>
+          <a href="https://github.com/anupyadav-213" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="mailto:anupyadav1302@gmail.com" title="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+      <form id="contactForm" class="contact-form glass">
+        <div class="form-group">
+          <input type="text" id="contactName" name="name" placeholder=" " required />
+          <label for="contactName">Your Name</label>
+        </div>
+        <div class="form-group">
+          <input type="email" id="contactEmail" name="email" placeholder=" " required />
+          <label for="contactEmail">Your Email</label>
+        </div>
+        <div class="form-group">
+          <input type="text" id="contactSubject" name="subject" placeholder=" " />
+          <label for="contactSubject">Subject</label>
+        </div>
+        <div class="form-group">
+          <textarea id="contactMessage" name="message" rows="5" placeholder=" " required></textarea>
+          <label for="contactMessage">Your Message</label>
+        </div>
+        <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+          <span class="btn-text">Send Message <i class="fas fa-paper-plane"></i></span>
+          <span class="btn-loading hidden"><i class="fas fa-spinner fa-spin"></i> Sending...</span>
+        </button>
+        <div id="formStatus" class="form-status"></div>
+      </form>
+    </div>
+  </section>
 
-  <form class="contact-form glass">
-    <input type="text" placeholder="Your Name" required />
-    <input type="email" placeholder="Your Email" required />
-    <textarea placeholder="Your Message" required></textarea>
-    <button type="submit" class="btn">Send Message</button>
-  </form>
-
-  <div class="social-links">
-    <a href="https://www.linkedin.com/in/anup-yadav-s13072002?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app " target="_blank" title="LinkedIn">
-      <i class="fab fa-linkedin"></i>
-    </a>
-    <a href="https://github.com/anupyadav-213" target="_blank" title="GitHub">
-      <i class="fab fa-github"></i>
-    </a>
-    <!-- <a href="mailto:your-anupyadav1302@gmail.com" title="Email">
-      <i class="fas fa-envelope"></i>
-    </a> -->
-  </div>
-</section>
-
-
-  <!-- Footer -->
   <footer>
-    <p>© Anup Yadav | Designed & Coded with 💻❤️</p>
+    <p>Designed & built by <span>Anup Yadav</span> · Coded with 💻❤️</p>
+    <p class="footer-sub">© 2025 All Rights Reserved</p>
   </footer>
+
 </body>
 </html>

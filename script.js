@@ -1,48 +1,128 @@
-// Mobile nav toggle
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
-menuToggle.addEventListener("click", () => navLinks.classList.toggle("show"));
+const EMAILJS_SERVICE_ID  = "service_tu6sxtd";
+const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+const EMAILJS_PUBLIC_KEY  = "YOUR_PUBLIC_KEY";
 
-// Typing effect
-const texts = ["Full Stack Developer", "MERN Stack", "Problem Solver"];
-let count = 0, index = 0, currentText = "", letter = "";
-
-(function type() {
-  if (count === texts.length) count = 0;
-  currentText = texts[count];
-  letter = currentText.slice(0, ++index);
-  document.querySelector(".typing").textContent = letter;
-  if (letter.length === currentText.length) {
-    count++;
-    index = 0;
-    setTimeout(type, 1500);
-  } else setTimeout(type, 100);
+(function () {
+  if (typeof emailjs !== "undefined") {
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  }
 })();
 
-// Scroll reveal animations
-ScrollReveal().reveal(".section-title", { delay: 200, origin: "top", distance: "50px" });
-ScrollReveal().reveal(".about-content", { delay: 300, origin: "bottom", distance: "60px" });
-ScrollReveal().reveal(".skill-card", { interval: 100, origin: "bottom", distance: "40px" });
-ScrollReveal().reveal(".projects-container", { delay: 300, origin: "bottom", distance: "60px" });
-ScrollReveal().reveal(".contact-form", { delay: 300, origin: "bottom", distance: "60px" });
+const cursorDot     = document.querySelector(".cursor-dot");
+const cursorOutline = document.querySelector(".cursor-outline");
 
-// Particles background
-const particles = document.createElement('script');
-particles.src = 'https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js';
-particles.onload = () => {
-  particlesJS('particles-js', {
-    particles: {
-      number: { value: 60 },
-      color: { value: "#00fff5" },
-      shape: { type: "circle" },
-      opacity: { value: 0.5 },
-      size: { value: 3 },
-      move: { enable: true, speed: 1 }
-    },
-    interactivity: {
-      events: { onhover: { enable: true, mode: "repulse" } },
-      modes: { repulse: { distance: 100, duration: 0.4 } }
-    }
+if (cursorDot && cursorOutline) {
+  let mouseX = 0, mouseY = 0, outX = 0, outY = 0;
+  window.addEventListener("mousemove", (e) => {
+    mouseX = e.clientX; mouseY = e.clientY;
+    cursorDot.style.transform = `translate(${mouseX - 3}px, ${mouseY - 3}px)`;
   });
-};
-document.body.appendChild(particles);
+  function animateCursor() {
+    outX += (mouseX - outX) * 0.12;
+    outY += (mouseY - outY) * 0.12;
+    cursorOutline.style.transform = `translate(${outX - 16}px, ${outY - 16}px)`;
+    requestAnimationFrame(animateCursor);
+  }
+  animateCursor();
+  document.querySelectorAll("a, button, .skill-card, .project-card, .tab-btn").forEach((el) => {
+    el.addEventListener("mouseenter", () => cursorOutline.classList.add("hover"));
+    el.addEventListener("mouseleave", () => cursorOutline.classList.remove("hover"));
+  });
+}
+
+const header = document.getElementById("header");
+window.addEventListener("scroll", () => {
+  header.classList.toggle("scrolled", window.scrollY > 50);
+  const sections = document.querySelectorAll("section[id]");
+  let current = "";
+  sections.forEach((s) => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+  document.querySelectorAll(".nav-links li a").forEach((a) => {
+    a.classList.toggle("active", a.getAttribute("href") === `#${current}`);
+  });
+});
+
+const menuToggle = document.getElementById("menuToggle");
+const navLinks   = document.getElementById("navLinks");
+menuToggle?.addEventListener("click", () => navLinks.classList.toggle("show"));
+document.querySelectorAll(".nav-links li a").forEach((a) =>
+  a.addEventListener("click", () => navLinks.classList.remove("show"))
+);
+
+const texts = ["Full Stack Developer", "MERN Stack Dev", "Problem Solver", "ECE Engineer"];
+let tCount = 0, tIndex = 0;
+const typingEl = document.querySelector(".typing");
+function type() {
+  if (!typingEl) return;
+  if (tCount === texts.length) tCount = 0;
+  const current = texts[tCount];
+  typingEl.textContent = current.slice(0, ++tIndex);
+  if (tIndex === current.length) { tCount++; tIndex = 0; setTimeout(type, 1800); }
+  else setTimeout(type, 90);
+}
+type();
+
+const revealObserver = new IntersectionObserver(
+  (entries) => entries.forEach((e) => {
+    if (e.isIntersecting) { e.target.classList.add("visible"); revealObserver.unobserve(e.target); }
+  }),
+  { threshold: 0.12 }
+);
+document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
+
+document.querySelectorAll(".tab-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".tab-btn").forEach((b) => b.classList.remove("active"));
+    btn.classList.add("active");
+    const tab = btn.dataset.tab;
+    document.querySelectorAll(".skill-card").forEach((card) => {
+      card.classList.toggle("hidden", card.dataset.tab !== tab);
+    });
+  });
+});
+
+const contactForm = document.getElementById("contactForm");
+const submitBtn   = document.getElementById("submitBtn");
+const formStatus  = document.getElementById("formStatus");
+
+function setLoading(on) {
+  submitBtn.querySelector(".btn-text").classList.toggle("hidden", on);
+  submitBtn.querySelector(".btn-loading").classList.toggle("hidden", !on);
+  submitBtn.disabled = on;
+}
+function showStatus(type, msg) {
+  formStatus.textContent = msg;
+  formStatus.className = `form-status ${type}`;
+  setTimeout(() => { formStatus.className = "form-status"; }, 5000);
+}
+
+contactForm?.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  if (EMAILJS_PUBLIC_KEY === "mKW0Wsn_BO1QhtfbN" || EMAILJS_TEMPLATE_ID === "template_dbmipio") {
+    const name    = document.getElementById("contactName").value.trim();
+    const email   = document.getElementById("contactEmail").value.trim();
+    const subject = document.getElementById("contactSubject").value.trim() || "Portfolio enquiry";
+    const message = document.getElementById("contactMessage").value.trim();
+    const body    = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`;
+    window.location.href = `mailto:anupyadav1302@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    showStatus("success", "✅ Opening your email app...");
+    return;
+  }
+
+  setLoading(true);
+  try {
+    await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+      from_name:  document.getElementById("contactName").value.trim(),
+      from_email: document.getElementById("contactEmail").value.trim(),
+      subject:    document.getElementById("contactSubject").value.trim() || "Portfolio Message",
+      message:    document.getElementById("contactMessage").value.trim(),
+    });
+    showStatus("success", "✅ Message sent! I'll get back to you soon.");
+    contactForm.reset();
+  } catch (err) {
+    console.error(err);
+    showStatus("error", "❌ Failed to send. Email me at anupyadav1302@gmail.com");
+  } finally {
+    setLoading(false);
+  }
+});
