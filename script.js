@@ -1,10 +1,10 @@
 const EMAILJS_SERVICE_ID  = "service_tu6sxtd";
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
-const EMAILJS_PUBLIC_KEY  = "YOUR_PUBLIC_KEY";
+const EMAILJS_TEMPLATE_ID = "template_dbmipio";
+const EMAILJS_PUBLIC_KEY  = "mKW0Wsn_BO1QhtfbN";
 
 (function () {
-  if (typeof emailjs !== "undefined") {
-    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  if (typeof emailjs !== "undefined" && EMAILJS_PUBLIC_KEY) {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
   }
 })();
 
@@ -48,7 +48,7 @@ document.querySelectorAll(".nav-links li a").forEach((a) =>
   a.addEventListener("click", () => navLinks.classList.remove("show"))
 );
 
-const texts = ["Full Stack Developer", "MERN Stack Dev", "Problem Solver", "ECE Engineer"];
+const texts = ["Full Stack Developer", "MERN Stack Developer", "Software Developer", "ECE Engineer"];
 let tCount = 0, tIndex = 0;
 const typingEl = document.querySelector(".typing");
 function type() {
@@ -98,7 +98,9 @@ function showStatus(type, msg) {
 contactForm?.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  if (EMAILJS_PUBLIC_KEY === "mKW0Wsn_BO1QhtfbN" || EMAILJS_TEMPLATE_ID === "template_dbmipio") {
+  const useMailtoFallback = typeof emailjs === "undefined" || !EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY;
+
+  if (useMailtoFallback) {
     const name    = document.getElementById("contactName").value.trim();
     const email   = document.getElementById("contactEmail").value.trim();
     const subject = document.getElementById("contactSubject").value.trim() || "Portfolio enquiry";
